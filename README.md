@@ -4,7 +4,7 @@ This repository contains both the dataset for our MobileHCI '19 Paper on "Invest
 ## Abstract
 Additional input controls such as fingerprint scanners, physical buttons, and Back-of-Device touch (BoD) panels improve the input capabilities on smartphones. While previous work showed the benefits of input beyond the touchscreen, unfavorably designed input controls force detrimental grip changes and increase the likelihood of unintended inputs. Researchers investigated all fingers' comfortable areas to avoid grip changes. However, there is no understanding of unintended BoD inputs which frustrate users and lead to embarrassing mistakes. In this paper, we study the BoD areas in which unintended inputs occur during interaction with the touchscreen. Participants performed common tasks on four smartphones which they held in the prevalent single-handed grip while sitting and walking. We recorded finger movements with a motion capture system and analyzed the unintended inputs. We identified comfortable areas on the back in which no unintended inputs occur and found that the least unintended inputs occurred on 5" devices. We derive three design implications for BoD input to help designers considering reachability and unintended input.
 
-<img src="https://github.com/interactionlab/unintended-input-dataset/blob/master/Images/teaser.png" height="300px">
+<img src="https://github.com/interactionlab/unintended-input-dataset/blob/master/Images/teaser.jpg" height="300px">
 
 ## Dataset
 As mentioned in the paper, we publicly share the following data sets:
