@@ -97,7 +97,6 @@ def get_screen_pos(device):
 fingers = ['Thumb', 'Index Finger', 'Middle Finger', 'Ring Finger', 'Little Finger']
 ALL_FINGER = ['Thumb', 'Index Finger', 'Middle Finger', 'Ring Finger', 'Little Finger']
 
-ALL_TASKS = ["WRITE", "READ", "Fitts"]
 
 # Hand marker neighbors
 joints = ['Thumb_Fn', 'Thumb_DIP', 'Thumb_PIP', 'Thumb_MCP',\
