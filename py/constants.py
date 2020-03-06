@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import numpy as np
-num_participants = 22
+num_participants = 16
 # Device List 
 device_list = ['Samsung Galaxy S3 Mini', 'Samsung Galaxy S4', 'OnePlus One', 'Nexus 6']
 

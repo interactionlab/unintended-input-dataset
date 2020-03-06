@@ -4,6 +4,7 @@ from take_processing_methods import *
 from marker_processing_methods import *
 from heatmap_methods import *
 import time
+from pathlib import Path
 
 def conv_name(s):
     return {
@@ -54,10 +55,9 @@ def generateHeatmaps(task):
     for filename in os.listdir(directory):
         if filename.endswith(".pkl"): 
             participant = int(filename.split("_")[0].replace("P",""))
-            if (participant != 18) and (participant !=9):
-                device = conv_name(filename.split("_")[1])
-                cond = filename.split("_")[2].split(".")[0]
-                toProcess.extend([(participant, cond, device)])
+            device = conv_name(filename.split("_")[1])
+            cond = filename.split("_")[2].split(".")[0]
+            toProcess.extend([(participant, cond, device)])
 
     #print(toProcess)
 
@@ -89,7 +89,9 @@ def generateHeatmaps(task):
         timer_end = time.clock()
         print(" Done! " + "(" + str(timer_end - timer_start) + " sec.)")
 
-        np.save("./heatmaps/%s/%s_highres/%s" % (cond, task, filenames), heatmaps)
+        path = "./heatmaps/%s/%s_highres/" % (cond, task)
+        Path(path).mkdir(parents=True, exist_ok=True)
+        np.save("%s%s" % (path, filenames), heatmaps)
         print("Heatmaps saved to /heatmaps/%s/%s_highres/%s.npy"  % (cond, task, filenames))
   
         print ("-----")

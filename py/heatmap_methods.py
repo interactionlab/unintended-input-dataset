@@ -124,7 +124,9 @@ def create_heatmaps(task,df,device):
     #rot_matrices = rot_matrices.T
     
     
-    pool = multiprocessing.Pool(5)
+    cpu_count = max(1, multiprocessing.cpu_count()-2)
+    print("Using %i CPU cores" % cpu_count)
+    pool = multiprocessing.Pool(cpu_count)
     lst = []
     for f in ALL_FINGER:
         lst.append([df, f, task, device_size])
