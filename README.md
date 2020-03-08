@@ -9,8 +9,8 @@ Additional input controls such as fingerprint scanners, physical buttons, and Ba
 ## Dataset
 As mentioned in the paper, we publicly share the following data sets:
 
-- Motion Capture Dataset as CSV files: https://www.dropbox.com/s/w599yh2fhpid3a5/mocap_dataset.zip?dl=0
-- Phone (IMU) Dataset as CSV files: https://www.dropbox.com/s/fki9q5ulwyp5p56/phone_dataset.zip?dl=0
+- Motion Capture Dataset as CSV files: https://www.dropbox.com/s/j2ws0ow7rfs6yhg/mocap_dataset.zip?dl=0
+- Phone (IMU) Dataset as CSV files: https://www.dropbox.com/s/n20u97f537aae0q/phone_dataset.zip?dl=0
 
 ## Citing our work
 This work can be cited as follows:
