@@ -1,4 +1,5 @@
 **/__pycache__/
+.pyc
 
 # data structure whichs gets created
 raw-data
