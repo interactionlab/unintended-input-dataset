@@ -1,4 +1,5 @@
-from datetime import datetime
+import datetime
+import pytz
 import time
 import os
 import pandas as pd
@@ -54,11 +55,16 @@ def read_take(take_file):
     
     
     # retrieve datetime and fix 12AM error of motive
-    dt = datetime.strptime(time_string, '%Y-%m-%d %I.%M.%S.%f %p')
+    dt = datetime.datetime.strptime(time_string, '%Y-%m-%d %I.%M.%S.%f %p')
     if dt.hour == 0 and dt.strftime("%p") == "AM":
         dt = dt.replace(hour=12)
+
+    t_adjusted = dt.replace(tzinfo=datetime.timezone(datetime.timedelta(hours=1))).timestamp()
     
-    return df, dt
+    # Summer time ajustment for 2018
+    if (t_adjusted > 1521936000):
+        t_adjusted = t_adjusted - (60*60)
+    return df, t_adjusted
 
 
 def get_take_label(participant, device_name, take_start_datetime):
@@ -69,7 +75,7 @@ def get_take_label(participant, device_name, take_start_datetime):
     take_labels = []
     
     # Times for take start
-    ts_take = time.mktime(take_start_datetime.timetuple())
+    #ts_take = time.mktime(take_start_datetime.timetuple())
 
     # read in label file 
     ts = pd.read_csv('./timestamps/labels_task1_pt' + str(participant) + '.csv', names = ['status', 'timestamp', 'participant', 'device', 'finger', 'task'], index_col=False)
@@ -85,7 +91,7 @@ def get_take_label(participant, device_name, take_start_datetime):
                     (ts['task'] == task) &
                     (ts['status'] == status)]['timestamp'].iloc[-1]
                 
-                label_dt = datetime.fromtimestamp(label_ts / 1000.0)
+                label_dt = datetime.datetime.fromtimestamp(label_ts / 1000.0)
                 frame_number = (((label_ts / 1000) - ts_take) * 240)
                 
                 t = []
